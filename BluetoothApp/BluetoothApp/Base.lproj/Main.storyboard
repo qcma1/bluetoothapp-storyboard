@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WUU-ua-Z8F">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bluetooth Device List View Controller-->
+        <scene sceneID="x8G-LN-6e0">
+            <objects>
+                <tableViewController storyboardIdentifier="BluetoothDeviceListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WUU-ua-Z8F" customClass="BluetoothDeviceListViewController" customModule="BluetoothApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hZs-YR-PB4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="deviceListTableCell" id="Ow2-M1-UDl" customClass="DeviceListTableCell" customModule="BluetoothApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ow2-M1-UDl" id="xMb-5f-DEB">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM1-tK-Jsd">
+                                            <rect key="frame" x="20" y="11" width="45" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-UN-5lU">
+                                            <rect key="frame" x="81" y="5" width="197" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dT7-16-euC">
+                                            <rect key="frame" x="326" y="7" width="59" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Connect"/>
+                                            <connections>
+                                                <action selector="connectButtonPressed:" destination="Ow2-M1-UDl" eventType="touchUpInside" id="KWA-1z-I8a"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="connectToBluetoothDeviceButton" destination="dT7-16-euC" id="8PK-la-bjg"/>
+                                    <outlet property="nameOfDiscoveredDevice" destination="yKp-UN-5lU" id="x7X-hP-8tG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WUU-ua-Z8F" id="b8O-Ij-8Bb"/>
+                            <outlet property="delegate" destination="WUU-ua-Z8F" id="lrj-pg-JDa"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sOJ-Yr-HN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239.13043478260872" y="-585.26785714285711"/>
+        </scene>
+        <!--Bluetooth Device Detail View Controller-->
+        <scene sceneID="LM7-lF-dUA">
+            <objects>
+                <tableViewController storyboardIdentifier="BluetoothDeviceDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cfg-fJ-zhS" customClass="BluetoothDeviceDetailViewController" customModule="BluetoothApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ply-C0-PIm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="peripheralNameCell" rowHeight="50" id="aYM-sJ-Mf9" customClass="DeviceNameCell" customModule="BluetoothApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aYM-sJ-Mf9" id="ljx-wn-pvk">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVW-5d-OTi">
+                                            <rect key="frame" x="25" y="11" width="105" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="6qe-FU-rMa"/>
+                                                <constraint firstAttribute="width" constant="105" id="QbU-W0-tNP"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zau-9G-EbA">
+                                            <rect key="frame" x="157" y="8" width="150" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="Ynv-xg-Hgm"/>
+                                                <constraint firstAttribute="height" constant="34" id="t3N-7k-gs0"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fVW-5d-OTi" firstAttribute="centerY" secondItem="ljx-wn-pvk" secondAttribute="centerY" id="JJ1-Gj-YQR"/>
+                                        <constraint firstItem="Zau-9G-EbA" firstAttribute="leading" secondItem="fVW-5d-OTi" secondAttribute="trailing" constant="27" id="KBc-eg-Dy3"/>
+                                        <constraint firstItem="fVW-5d-OTi" firstAttribute="leading" secondItem="ljx-wn-pvk" secondAttribute="leadingMargin" constant="5" id="tAb-2M-Ygd"/>
+                                        <constraint firstItem="Zau-9G-EbA" firstAttribute="centerY" secondItem="ljx-wn-pvk" secondAttribute="centerY" id="vdp-Ot-66e"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="deviceName" destination="Zau-9G-EbA" id="bcg-js-fLs"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="connectionStatusCell" rowHeight="50" id="OmZ-HX-DIP" customClass="ConnectionStatusCell" customModule="BluetoothApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="74.5" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OmZ-HX-DIP" id="DAL-Qa-o0i">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7X-nM-o6r">
+                                            <rect key="frame" x="25" y="11" width="55" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="55" id="ACz-pb-p5w"/>
+                                                <constraint firstAttribute="height" constant="28" id="FwF-Ph-UFv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zvP-iS-o5K">
+                                            <rect key="frame" x="107" y="8" width="250" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="4U3-Ae-hFZ"/>
+                                                <constraint firstAttribute="width" constant="250" id="dhD-6G-bqo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="L7X-nM-o6r" firstAttribute="centerY" secondItem="DAL-Qa-o0i" secondAttribute="centerY" id="eid-lq-aWi"/>
+                                        <constraint firstItem="zvP-iS-o5K" firstAttribute="leading" secondItem="L7X-nM-o6r" secondAttribute="trailing" constant="27" id="g84-1J-m8U"/>
+                                        <constraint firstItem="zvP-iS-o5K" firstAttribute="centerY" secondItem="DAL-Qa-o0i" secondAttribute="centerY" id="od2-pn-cdO"/>
+                                        <constraint firstItem="L7X-nM-o6r" firstAttribute="leading" secondItem="DAL-Qa-o0i" secondAttribute="leadingMargin" constant="5" id="sQQ-pe-Aly"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="connectionStatus" destination="zvP-iS-o5K" id="51o-dO-kuJ"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="disconnectButtonCell" rowHeight="50" id="tG7-WZ-W2z" customClass="DisconnectButtonCell" customModule="BluetoothApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="124.5" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tG7-WZ-W2z" id="84B-2p-eLv">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaK-R2-ZgU">
+                                            <rect key="frame" x="168" y="10" width="78" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="QN7-bb-snx"/>
+                                                <constraint firstAttribute="width" constant="78" id="S1E-e3-QoG"/>
+                                            </constraints>
+                                            <state key="normal" title="Disconnect"/>
+                                            <connections>
+                                                <action selector="disconnectButtonPressed:" destination="tG7-WZ-W2z" eventType="touchUpInside" id="gBv-EA-ehL"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="LaK-R2-ZgU" firstAttribute="centerY" secondItem="84B-2p-eLv" secondAttribute="centerY" id="Aeu-f4-Ynu"/>
+                                        <constraint firstItem="LaK-R2-ZgU" firstAttribute="centerX" secondItem="84B-2p-eLv" secondAttribute="centerX" id="gV2-4B-6rO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="disconnectButton" destination="LaK-R2-ZgU" id="Uc2-nN-O2b"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cfg-fJ-zhS" id="e7K-le-841"/>
+                            <outlet property="delegate" destination="cfg-fJ-zhS" id="JVC-Pt-aYj"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gWZ-BJ-gUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507.24637681159425" y="-1258.2589285714284"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
