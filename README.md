@@ -1,0 +1,2 @@
+- App that lists nearby BLE device peripherals using Core Bluetooth framework. It allows connection to a selected peripheral.
+- Implemented using VIPER architecture, UIKit with storyboard.
